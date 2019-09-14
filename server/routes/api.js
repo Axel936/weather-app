@@ -16,7 +16,7 @@ router.get("/city/:cityName", function(req, res) {
       let weatherData = JSON.parse(body);
       // make a new City
       if (weatherData.success === false) {
-        res.sendStatus(500);
+        res.sendStatus(404);
       } else {
         let newCity = {
           name: weatherData.location.name,
@@ -41,7 +41,6 @@ router.get("/cities", async function(req, res) {
 // creates and adds inserts a new city to DB
 
 router.post("/city", async (req, res) => {
-  console.log(req.body);
   let cityDocument = new City(req.body);
 
   await cityDocument.save()
