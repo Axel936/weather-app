@@ -11,15 +11,20 @@
 	<input id="text" type="text">
 	<button onclick="weatherPlease()"></button>
 	<div id="cities-container"></div>
-	<script src=""></script>
+	
 	<script src="./handlebars/dist/handlebars.js"></script>
 	<script src="./jquery/dist/jquery.js"></script>
+	<script src="TempManager.js"></script>
 	<script src="render.js"></script>
 	<script src=main.js></script>
 </body>
 <script id="first-template" type="text/x-handlebars-template">   
         {{#each cities}}
-        <h4>{{name}}</h4>
+		<h4>{{name}}</h4>
+		<h5>{{temperature}}ºc</h5>
+		<h5>{{updatedAt}}</h5>
+		<h5>{{condition}}</h5>
+		<img src="{{conditionPic}}" alt="">
         {{/each}}
 </script>
 
