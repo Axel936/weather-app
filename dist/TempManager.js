@@ -11,7 +11,11 @@ class TempManager {
 
   getCityData =  async function(cityName) {
     let city = await $.get(`/city/${cityName}`) 
-      this.cities.push(city);
+      
+      
+        this.cities.push(city);
+
+      
     };
   
   saveCity = async function(cityName){
@@ -24,6 +28,7 @@ class TempManager {
       url: `/city/${cityName}`, 
       success: function (err, body){}
   })
+  this.cities = this.cities.filter(p => p.name != cityName)
   }
 
 }

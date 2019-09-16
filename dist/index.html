@@ -12,6 +12,8 @@
 	<button onclick="weatherPlease()"></button>
 	<div id="cities-container"></div>
 	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 	<script src="./handlebars/dist/handlebars.js"></script>
 	<script src="./jquery/dist/jquery.js"></script>
 	<script src="TempManager.js"></script>
@@ -19,12 +21,31 @@
 	<script src=main.js></script>
 </body>
 <script id="first-template" type="text/x-handlebars-template">   
-        {{#each cities}}
-		<h4>{{name}}</h4>
-		<h5>{{temperature}}ºc</h5>
-		<h5>{{updatedAt}}</h5>
-		<h5>{{condition}}</h5>
-		<img src="{{conditionPic}}" alt="">
+		{{#each cities}}
+		<div data-id="{{name}}" id="container">
+			<img class="img"src="{{conditionPic}}" alt="">
+			<span class="name" id="first">{{name}}</span>
+			<span class="condition">{{condition}}</span>
+			<div class="temp" id="second">{{temperature}} <i class="fas fa-temperature-high"></i></div>
+			<div class="time">{{updatedAt}} <i class="fas fa-clock"></i></div>
+			
+			
+			<button class="delete">
+					<i class="fas fa-poo"></i>
+
+			</button>
+			<button class="add">
+					<i class="fas fa-save"></i>
+			</button>
+		  </div>
+		  
+		<!-- <div class="city">
+			<h4 class="name">{{name}}</h4>
+			<h5 class="temp">{{temperature}}ºc</h5>
+			<h4 class="time">{{updatedAt}}</h5>
+			<h5 class="condition"{{condition}}</h5>
+			<img class="img"src="{{conditionPic}}" alt="">
+		</div> -->
         {{/each}}
 </script>
 

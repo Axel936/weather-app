@@ -1,6 +1,7 @@
 
 
 
+
 let tempManager = new TempManager()
 
 
@@ -32,3 +33,16 @@ const weatherPlease = async () => {
  
 loadPage()
 
+const deletePost = function() { console.log(this)}
+
+$("body").on("click",".delete", async function() {
+let cityName = ($(this).closest('#container').data().id)
+await tempManager.removeCity(cityName)
+renderCities(tempManager.cities)
+});
+
+$("body").on("click",".add", async function() {
+let cityName = ($(this).closest('#container').data().id)
+await tempManager.saveCity(cityName)
+renderCities(tempManager.cities)
+});
