@@ -30,19 +30,22 @@ const weatherPlease = async () => {
    await  tempManager.getCityData(request)
     renderCities(tempManager.cities)
 }
- 
+// load page
 loadPage()
 
-const deletePost = function() { console.log(this)}
 
+// detete button on click
+// remove city from cities array and DB in tempManager, and rerender cities array
 $("body").on("click",".delete", async function() {
 let cityName = ($(this).closest('#container').data().id)
 await tempManager.removeCity(cityName)
 renderCities(tempManager.cities)
 });
-
+// delete button on click
+// add city to DB
 $("body").on("click",".add", async function() {
 let cityName = ($(this).closest('#container').data().id)
 await tempManager.saveCity(cityName)
-renderCities(tempManager.cities)
+$(this).hide()
+
 });
